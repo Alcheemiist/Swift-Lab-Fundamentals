@@ -149,8 +149,36 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jL-eP-kln">
-                                <rect key="frame" x="173" y="80" width="46" height="72"/>
+                                <rect key="frame" x="173" y="112" width="46" height="72"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Results :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db9-3w-Uhz">
+                                <rect key="frame" x="16" y="69" width="115" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxd-r3-NkX">
+                                <rect key="frame" x="19" y="119" width="44" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" systemColor="systemBrownColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRw-bd-PdD">
+                                <rect key="frame" x="20" y="151" width="42" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Turn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8i-U9-EhI">
+                                <rect key="frame" x="176" y="81" width="40" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -158,15 +186,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0jL-eP-kln" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="DDH-ON-9eC"/>
                             <constraint firstItem="NoC-eL-aoQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="De5-dK-sgG"/>
                             <constraint firstItem="0jL-eP-kln" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FpT-gY-0fm"/>
                             <constraint firstItem="0jL-eP-kln" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="Swl-EB-pez"/>
+                            <constraint firstItem="0jL-eP-kln" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gte-BY-nfK"/>
                             <constraint firstItem="NoC-eL-aoQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="hC2-de-SZF"/>
                             <constraint firstItem="NoC-eL-aoQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="rmt-h6-mtF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="LabelTurn" destination="0jL-eP-kln" id="36F-NM-CH1"/>
+                        <outlet property="Oresult" destination="oxd-r3-NkX" id="B0U-F0-Won"/>
                         <outlet property="a1" destination="NFT-x9-s3g" id="uNV-JS-kgj"/>
                         <outlet property="a2" destination="nDc-Bs-axd" id="EWD-Ls-1bF"/>
                         <outlet property="a3" destination="v2x-BE-MXe" id="43U-WB-Ppx"/>
@@ -186,6 +217,12 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

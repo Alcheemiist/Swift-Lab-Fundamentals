@@ -19,13 +19,16 @@ class ViewController: UIViewController {
     var X = "X"
     var O = "O"
     var Board = [UIButton]()
-    
+    var Xcount = 0
+    var Ocount = 0
     
     @IBOutlet weak var LabelTurn: UILabel!
     
+    @IBOutlet var Oresult: UILabel!
     @IBOutlet var a1: UIButton!
     @IBOutlet var a2: UIButton!
     @IBOutlet var a3: UIButton!
+    @IBOutlet var Xresult: UILabel!
     @IBOutlet var b1: UIButton!
     @IBOutlet var b2: UIButton!
     @IBOutlet var b3: UIButton!
@@ -36,7 +39,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initBoard()
-        
+//        Xresult.text = "X : 0"
+//        Oresult.text = "O : 0"
         // Do any additional setup after loading the view.
     }
     func initBoard()
@@ -53,20 +57,87 @@ class ViewController: UIViewController {
     }
 
 
-    @IBAction func TapStart(_ sender: UIButton) {
-        
+    @IBAction func TapStart(_ sender: UIButton)
+    {
         addToBoard(sender)
+        if checkVectory(O)
+        {
+            Ocount += 1
+            resultAlert(title: "O Wins !!")
+        }
+        else if checkVectory(X)
+        {
+            Xcount += 1
+            resultAlert(title: "X Wins !!")
+        }
+        
         if (fullBoard())
         {
             resultAlert(title: "Draw")
         }
         
     }
+   
+    
+    func checkVectory(_ s : String) -> Bool
+    {
+       
+        if (isCheck(Board[0],  s) && isCheck(Board[1],  s) && isCheck(Board[2],  s) )
+        {
+            return true
+        }
+        if (isCheck(Board[3],  s) && isCheck(Board[4],  s) && isCheck(Board[5],  s) )
+        {
+            return true
+        }
+        if (isCheck(Board[6],  s) && isCheck(Board[7],  s) && isCheck(Board[8],  s) )
+        {
+            return true
+        }
+        
+        if (isCheck(Board[0],  s) && isCheck(Board[3],  s) && isCheck(Board[6],  s) )
+        {
+            return true
+        }
+        if (isCheck(Board[1],  s) && isCheck(Board[4],  s) && isCheck(Board[7],  s) )
+        {
+            return true
+        }
+        if (isCheck(Board[2],  s) && isCheck(Board[5],  s) && isCheck(Board[8],  s) )
+        {
+            return true
+        }
+        if (isCheck(Board[2],  s) && isCheck(Board[4],  s) && isCheck(Board[6],  s) )
+        {
+            return true
+        }
+        if (isCheck(Board[0],  s) && isCheck(Board[4],  s) && isCheck(Board[8],  s) )
+        {
+            return true
+        }
+     
+        return false
+    }
+    
+    func isCheck(_ sender: UIButton,_ t: String) -> Bool
+    {
+        if (sender.title(for: .normal) == t) {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
     
     func resultAlert(title : String ){
-        let ac = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        Oresult.text = "O : \(Ocount)"
+//        Xresult.text = "X : \(Xcount)"
+        let ac = UIAlertController(title: title, message: "O : \(Ocount) \n  X : \(Xcount)", preferredStyle: .actionSheet)
+        
         ac.addAction(UIAlertAction(title: "Reset", style: .default, handler: { (_) in self.resetBoard()}))
         self.present(ac, animated: true )
+        
     }
     
     func resetBoard()
